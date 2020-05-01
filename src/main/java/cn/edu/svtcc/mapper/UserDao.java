@@ -3,6 +3,8 @@ package cn.edu.svtcc.mapper;
 import cn.edu.svtcc.pojo.Users;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import java.util.List;
@@ -13,7 +15,7 @@ import java.util.List;
  * @description
  * @date 2020/05/01/12:14
  */
-
+@Mapper
 public interface UserDao {
   @Select("select * from user")
   List<Users> findAll();
@@ -25,7 +27,7 @@ public interface UserDao {
    * @return user
    */
   @Select("select * from user where userId = #{userId} ")
-  Users findByUserId(Integer userId);
+  Users findByUserId(@Param("userId") Integer userId);
 
 
   @Select("select *from user u where u.userName=#{userName} && u.passWord=#{passWord}")
