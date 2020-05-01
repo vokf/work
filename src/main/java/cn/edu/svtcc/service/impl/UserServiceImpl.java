@@ -4,7 +4,9 @@ import cn.edu.svtcc.mapper.UserDao;
 import cn.edu.svtcc.pojo.Users;
 import cn.edu.svtcc.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,11 +16,17 @@ import java.util.List;
  * @description
  * @date 2020/05/01/12:14
  */
-@Service
+@Service("UserService")
+@Transactional(rollbackFor = Exception.class)
 public class UserServiceImpl implements UserService {
 
-  @Autowired
+
   private UserDao dao;
+
+  @Autowired
+  public void setDao(UserDao dao) {
+    this.dao = dao;
+  }
 
   public UserServiceImpl() {
   }
@@ -36,7 +44,7 @@ public class UserServiceImpl implements UserService {
   @Override
   public Users login(Users user) {
 
-    return  user.getUserName() != null && user.getPassWord() != null ? this.dao.login(user) : null;
+    return user.getUserName() != null && user.getPassWord() != null ? this.dao.login(user) : null;
 
   }
 
