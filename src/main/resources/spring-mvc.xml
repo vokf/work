@@ -15,13 +15,14 @@
 		http://www.springframework.org/schema/aop/spring-aop.xsd">
     <!-- 设置静态资源不过滤 -->
     <mvc:resources location="/css/" mapping="/css/**"/>
-    <mvc:resources location="/img/" mapping="/img/**"/>
+
     <mvc:resources location="/js/" mapping="/js/**"/>
     <mvc:resources location="/plugins/" mapping="/plugins/**"/>
     <mvc:resources location="/logo/" mapping="/logo/**"/>
     <mvc:resources location="/font/" mapping="/font/**"/>
     <mvc:resources location="/face" mapping="/face/**"/>
     <!-- 开启对SpringMVC注解的支持 -->
+
     <mvc:annotation-driven>
 
         <mvc:message-converters>
@@ -59,5 +60,23 @@
         <property name="templateEngine" ref="templateEngine"/>
         <property name="characterEncoding" value="UTF-8"/>
     </bean>
+<!--    <bean id="viewResolver"-->
+<!--          class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+<!--        <property name="viewClass"-->
+<!--                  value="org.springframework.web.servlet.view.JstlView"/>-->
+<!--        <property name="prefix" value="WEB-INF/views/"/>-->
+<!--        <property name="suffix" value=".jsp"/>-->
+<!--    </bean>-->
 
+    <!--  开启shiro注解  -->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor">
+        <property name="proxyTargetClass" value="true"/>
+
+    </bean>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+
+
+    </bean>
 </beans>
