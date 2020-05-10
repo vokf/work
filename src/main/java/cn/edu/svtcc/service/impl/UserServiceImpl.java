@@ -68,4 +68,9 @@ public class UserServiceImpl implements UserService {
   public int findTotalUser() {
     return 0;
   }
+
+  @Override
+  public Users selectByUserName(String userName) {
+    return this.dao.selectByUserName(userName);
+  }
 }
