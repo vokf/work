@@ -46,6 +46,7 @@
     <bean id="templateResolver" class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
         <constructor-arg ref="servletContext"/>
         <property name="prefix" value="/templates/"/>
+
         <property name="suffix" value=".html"/>
         <property name="templateMode" value="HTML"/>
         <property name="cacheable" value="false"/>
@@ -60,13 +61,6 @@
         <property name="templateEngine" ref="templateEngine"/>
         <property name="characterEncoding" value="UTF-8"/>
     </bean>
-<!--    <bean id="viewResolver"-->
-<!--          class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-<!--        <property name="viewClass"-->
-<!--                  value="org.springframework.web.servlet.view.JstlView"/>-->
-<!--        <property name="prefix" value="WEB-INF/views/"/>-->
-<!--        <property name="suffix" value=".jsp"/>-->
-<!--    </bean>-->
 
     <!--  开启shiro注解  -->
     <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
