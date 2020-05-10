@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<!-- meta data -->
@@ -9,26 +9,25 @@
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 	<!--font-family-->
-	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;subset=devanagari,latin-ext"
-		  rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;subset=devanagari,latin-ext" rel="stylesheet">
 
 	<!-- title of site -->
 	<title>注册</title>
 
 	<!-- For favicon png -->
-	<link rel="shortcut icon" type="image/icon" href="logo/favicon.png"/>
+	<link rel="shortcut icon" type="image/icon" th:href="@{/logo/favicon.png}">
 
 	<!--   Logo	  -->
-	<link rel="shortcut icon" type="image/icon" href="logo/favicon.png">
+
 	<!--font-awesome.min.css-->
-	<link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" th:href="@{/plugins/font-awesome/css/font-awesome.css}">
 	<!--animate.css-->
-	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" th:href="@{/css/animate.css}">
 	<!--bootstrap.min.css-->
-	<link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" th:href="@{/plugins/bootstrap/css/bootstrap.css}">
 	<!--	responsive.css   -->
-	<link rel="stylesheet" href="css/responsive.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" th:href="@{/css/responsive.css}">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -73,8 +72,7 @@
 								<!--/.form-group -->
 								<div class="form-group">
 									<label for="signin_form">确认密码</label>
-									<input type="password" class="form-control" id="signin_form"
-										   placeholder="请再次输入您的密码">
+									<input type="password" class="form-control" id="signin_form" placeholder="请再次输入您的密码">
 								</div>
 								<div class="form-group">
 									<label for="signin_form">电话号码</label>
@@ -102,8 +100,7 @@
 								<ul class="unstyled centered">
 
 									<li>
-										<input class="styled-checkbox" id="styled-checkbox-2" type="checkbox"
-											   value="value2">
+										<input class="styled-checkbox" id="styled-checkbox-2" type="checkbox" value="value2">
 										<label for="styled-checkbox-2">同 意 战 队 管 理 规 则</label>
 									</li>
 
@@ -150,8 +147,7 @@
 <!--footer copyright start -->
 <footer class="footer-copyright">
 	<div id="scroll-Top">
-		<i class="fa fa-angle-double-up return-to-top" id="scroll-top" data-toggle="tooltip" data-placement="top"
-		   title="" data-original-title="Back to Top" aria-hidden="true"></i>
+		<i class="fa fa-angle-double-up return-to-top" id="scroll-top" data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
 	</div>
 	<!--/.scroll-Top-->
 
@@ -161,23 +157,23 @@
 
 <!-- Include all js compiled plugins (below), or include individual files as needed -->
 
-<script src="plugins/jQuery/jquery-3.4.1.js"></script>
+<script th:src="@{/plugins/jQuery/jquery-3.4.1.js}"></script>
 
 <!--modernizr.min.js-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 
 <!--bootstrap.min.js-->
-<script src="plugins/bootstrap/js/bootstrap.js"></script>
+<script th:src="@{/plugins/bootstrap/js/bootstrap.js}"></script>
 
 <!-- bootsnav js -->
-<script src="js/bootsnav.js"></script>
+<script th:src="@{/js/bootsnav.js}"></script>
 
 <!-- jquery.sticky.js -->
-<script src="js/jquery.sticky.js"></script>
+<script th:src="@{/js/jquery.sticky.js}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 
 <!--Custom JS-->
-<script src="js/custom.js"></script>
+<script th:src="@{/js/custom.js}"></script>
 <script type="application/javascript">
     function signup() {
         var datas = $("input[id=signin_form]")
