@@ -1,5 +1,7 @@
 package cn.edu.svtcc.pojo;
 
+import org.springframework.lang.NonNull;
+
 import java.io.Serializable;
 
 /**
@@ -20,7 +22,6 @@ public class ResultBean implements Serializable {
     this.code = SUCCESS;
     this.data = data;
   }
-
   public Object getData() {
     return data;
   }
@@ -64,7 +65,7 @@ public class ResultBean implements Serializable {
   public ResultBean() {
     this.code = SUCCESS;
   }
-  public static ResultBean success(Object data) {
+  public static ResultBean success(@NonNull Object data) {
     ResultBean rb = new ResultBean(data);
     rb.setMessage("success");
     rb.setCode(SUCCESS);
