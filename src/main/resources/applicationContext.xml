@@ -81,4 +81,46 @@
     </aop:config>
 
 
+    <!-- Shiro安全管理器 -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="jdbcRealm"/>
+        <property name="cacheManager" ref="shiroCacheManager"/>
+
+    </bean>
+    <!-- 对应于web.xml中配置的那个shiroFilter -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- Shiro的核心安全接口，这个属性是必须的 -->
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/userLogin.html"/>
+        <property name="successUrl" value="/index.html"/>
+        <property name="filterChainDefinitions">
+            <value>
+                /admin/** = authc
+                /logout = logout
+
+            </value>
+        </property>
+    </bean>
+
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+    <!-- 数据库保存的密码是使用MD5算法加密的，所以这里需要配置一个密码匹配对象 -->
+    <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.Md5CredentialsMatcher"/>
+    <!-- 缓存管理 -->
+    <bean id="shiroCacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"/>
+    <!--
+       使用Shiro自带的JdbcRealm类
+       指定密码匹配所需要用到的加密对象
+       指定存储用户、角色、权限许可的数据源及相关查询语句
+       -->
+    <bean id="jdbcRealm" class="org.apache.shiro.realm.jdbc.JdbcRealm">
+        <property name="credentialsMatcher" ref="credentialsMatcher"/>
+        <property name="permissionsLookupEnabled" value="true"/>
+        <property name="dataSource" ref="dataSource"/>
+        <property name="authenticationQuery"
+                  value="select password from sec_user where user_name=?"/>
+        <property name="userRolesQuery"
+                  value="SELECT role_name from sec_user_role left join sec_role using(role_id) left join sec_user using(user_id) WHERE user_name = ?"/>
+        <property name="permissionsQuery"
+                  value="SELECT permission_name FROM sec_role_permission left join sec_role using(role_id) left join sec_permission using(permission_id) WHERE role_name = ?"/>
+    </bean>
 </beans>
