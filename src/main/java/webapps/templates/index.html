@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>潮鞋专卖店</title>
+	<link rel="stylesheet" th:href="@{/css/my.css}" media="all">
+	<link rel="stylesheet" th:href="@{/default/layer.css}">
+	<script th:src="@{/plugins/jQuery/jquery-3.4.1.js}"></script>
+
+	<link rel="stylesheet" th:href="@{/plugins/bootstrap/css/bootstrap.min.css}">
+
+	<link rel="stylesheet" th:href="@{/plugins/font-awesome/css/font-awesome.css}">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;subset=devanagari,latin-ext" rel="stylesheet">
+	<!--   Logo	  -->
+	<link rel="shortcut icon" type="image/icon" th:href="@{/logo/favicon.png}">
+
+</head>
+
+<style>
+	a:hover {
+		text-decoration: none;
+	}
+</style>
+<body>
+<div id="app">
+	<!--上面-->
+	<div class="top">
+		<!--上面-->
+		<div class="container-fluid pl-lg-5">
+			<!--logo-->
+			<div class="py-4 left">
+				<h1><a href="index.html" class="logo"> <span class="fa fa-bold" aria-hidden="false"></span>ootie</a>
+				</h1>
+
+				<ul class="mt-2 ul">
+					<li class="active"><a href="index.html">首页</a></li>
+					<li><a href="userLogin.html">登录</a></li>
+					<li><a href="">联系</a></li>
+					<li><a href=""><i class="fa fa-search"></i></a></li>
+					<li></li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+	<!--轮播图-->
+	<div class="container-fluid lun">
+		<div class="row">
+			<div id="carousel-gen" class=" carousel slide  " data-ride="carousel">
+				<ol class="carousel-indicators">
+					<li data-target="#carousel-gen" data-slide-to="0" class="active"></li>
+					<li data-target="#carousel-gen" data-slide-to="1"></li>
+					<li data-target="#carousel-gen" data-slide-to="2"></li>
+					<li data-target="#carousel-gen" data-slide-to="3"></li>
+					<li data-target="#carousel-gen" data-slide-to="4"></li>
+					<li data-target="#carousel-gen" data-slide-to="5"></li>
+
+
+				</ol>
+				<div class="carousel-inner">
+					<div class="item active"><img th:src="@{/images/pk1.jpg}" alt=""></div>
+					<div class="item"><img  th:src="@{/images/pk2.jpg}" alt=""></div>
+					<div class="item"><img src="images/pk3.jpg" alt=""></div>
+					<div class="item"><img src="images/pk4.jpg" alt=""></div>
+					<div class="item"><img src="images/pk5.jpg" alt=""></div>
+					<div class="item"><img src="images/pk6.jpg" alt=""></div>
+				</div>
+				<a class="left carousel-control " href="#carousel-gen" role="button" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control " href="#carousel-gen" role="button" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<section class="about py-md-5 py-5 lun">
+		<div class="container-fluid">
+			<div class="feature-grids row px-3">
+				<div class="col-lg-3 gd-bottom">
+					<div class="bottom-gd row">
+						<div class="icon-gd col-md-3 text-center"><span class="fa fa-truck" aria-hidden="true"></span></div>
+						<div class="icon-gd-info col-md-9">
+							<h3 class="mb-2">免运费</h3>
+							<p>订单超过2000</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 gd-bottom">
+					<div class="bottom-gd row bottom-gd2-active">
+						<div class="icon-gd col-md-3 text-center"><span class="fa fa-bullhorn" aria-hidden="true"></span>
+						</div>
+						<div class="icon-gd-info col-md-9">
+							<h3 class="mb-2">无条件退货</h3>
+							<p>7天无理由退货</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 gd-bottom">
+					<div class="bottom-gd row">
+						<div class="icon-gd col-md-3 text-center"><span class="fa fa-gift" aria-hidden="true"></span>
+						</div>
+						<div class="icon-gd-info col-md-9">
+							<h3 class="mb-2">会员折扣</h3>
+							<p>注册会节省高达29%</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 gd-bottom">
+					<div class="bottom-gd row">
+						<div class="icon-gd col-md-3 text-center"><span class="fa fa-usd" aria-hidden="true"></span>
+						</div>
+						<div class="icon-gd-info col-md-9">
+							<h3 class="mb-2">客服</h3>
+							<p>一天24小时在线</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="about py-5 lun">
+		<div class="container pb-lg-3">
+			<h3 class="tittle text-center">新品推荐</h3>
+			<div class="row">
+				<div class="col-md-4 product-men">
+					<div class="product-shoe-info shoe text-center">
+						<div class="men-thumb-item">
+							<img src="images/s1.jpg" class="img-fluid" alt="">
+							<span class="product-new-top">新品</span>
+						</div>
+						<div class="item-info-product">
+							<h4><a href="shop-single.html">Bella Toes </a></h4>
+							<a href=""><p>点击购买</p></a>
+							<div class="product_price">
+								<div class="grid-price"><span class="money">675.00</span></div>
+							</div>
+							<ul class="stars">
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star-half-o" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star-half-o" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star-o" aria-hidden="true"></span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 product-men">
+					<div class="product-shoe-info shoe text-center">
+						<div class="men-thumb-item">
+							<img src="images/s2.jpg" class="img-fluid" alt="">
+							<span class="product-new-top">新款</span>
+						</div>
+						<div class="item-info-product">
+							<h4><a href="shop-single.html">Chikku Loafers </a></h4>
+							<a href=""><p>点击购买</p></a>
+							<div class="product_price">
+								<div class="grid-price"><span class="money">475.00</span></div>
+							</div>
+							<ul class="stars">
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star-half-o" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star-o" aria-hidden="true"></span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 product-men">
+					<div class="product-shoe-info shoe text-center">
+						<div class="men-thumb-item">
+							<img src="images/s3.jpg" class="img-fluid" alt="">
+							<span class="product-new-top">新款</span>
+						</div>
+						<div class="item-info-product">
+							<h4><a href="shop-single.html">(SRV) 运动鞋 </a></h4>
+							<a href=""><p>点击购买</p></a>
+							<div class="product_price">
+								<div class="grid-price"><span class="money">575.00</span></div>
+							</div>
+							<ul class="stars">
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star-half-o" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star-o" aria-hidden="true"></span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 product-men my-lg-4">
+					<div class="product-shoe-info shoe text-center">
+						<div class="men-thumb-item">
+							<img src="images/s4.jpg" class="img-fluid" alt="">
+							<span class="product-new-top">新款</span>
+						</div>
+						<div class="item-info-product">
+							<h4><a href="shop-single.html">Shuberry 高跟鞋</a></h4>
+							<a href=""><p>点击购买</p></a>
+							<div class="product_price">
+								<div class="grid-price"><span class="money">575.00</span></div>
+
+							</div>
+							<ul class="stars">
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star-half-o" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star-o" aria-hidden="true"></span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 product-men my-lg-4">
+					<div class="product-shoe-info shoe text-center">
+						<div class="men-thumb-item">
+							<img src="images/s5.jpg" class="img-fluid" alt="">
+							<span class="product-new-top">新款</span>
+						</div>
+						<div class="item-info-product">
+							<h4><a href="shop-single.html">Red Bellies </a></h4>
+							<a href=""><p>点击购买</p></a>
+							<div class="product_price">
+								<div class="grid-price"><span class="money">575.00</span></div>
+							</div>
+							<ul class="stars">
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star-half-o" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star-o" aria-hidden="true"></span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 product-men my-lg-4">
+					<div class="product-shoe-info shoe text-center">
+						<div class="men-thumb-item">
+							<img src="images/s6.jpg" class="img-fluid" alt="">
+							<span class="product-new-top">新款</span>
+						</div>
+						<div class="item-info-product">
+							<h4><a href="shop-single.html">Catwalk Flats </a></h4>
+							<a href=""><p>点击购买</p></a>
+							<div class="product_price">
+								<div class="grid-price"><span class="money">575.00</span></div>
+							</div>
+							<ul class="stars">
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star-half-o" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star-o" aria-hidden="true"></span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 product-men">
+					<div class="product-shoe-info shoe text-center">
+						<div class="men-thumb-item">
+							<img src="images/s7.jpg" class="img-fluid" alt="">
+							<span class="product-new-top">新品</span>
+						</div>
+						<div class="item-info-product">
+							<h4><a href="shop-single.html">运动鞋</a></h4>
+							<a href=""><p>点击购买</p></a>
+							<div class="product_price">
+								<div class="grid-price"><span class="money">675.00</span></div>
+							</div>
+							<ul class="stars">
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star-half-o" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star-half-o" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star-o" aria-hidden="true"></span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 product-men">
+					<div class="product-shoe-info shoe text-center">
+						<div class="men-thumb-item">
+							<img src="images/s8.jpg" class="img-fluid" alt="">
+							<span class="product-new-top">新款</span>
+						</div>
+						<div class="item-info-product">
+							<h4><a href="shop-single.html">Sukun Casuals </a></h4>
+							<a href=""><p>点击购买</p></a>
+							<div class="product_price">
+								<div class="grid-price ">
+									<span class="money ">$775.00</span>
+								</div>
+							</div>
+							<ul class="stars">
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star-half-o" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star-o" aria-hidden="true"></span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 product-men">
+					<div class="product-shoe-info shoe text-center">
+						<div class="men-thumb-item">
+							<img src="images/s9.jpg" class="img-fluid" alt="">
+							<span class="product-new-top">新款</span>
+						</div>
+						<div class="item-info-product">
+							<h4><a href="shop-single.html">商务型</a></h4>
+							<a href=""><p>点击购买</p></a>
+							<div class="product_price">
+								<div class="grid-price"><span class="money">875.00</span></div>
+							</div>
+							<ul class="stars">
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star-half-o" aria-hidden="true"></span></a></li>
+								<li><a href="#"><span class="fa fa-star-o" aria-hidden="true"></span></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<section class="testimonials py-5 lun">
+		<div class="container">
+			<div class="test-info text-center">
+				<h3 class="my-md-2 my-3"></h3>
+				<ul class="list-unstyled w3layouts-icons clients">
+					<li><a href="#"><span class="fa fa-star"></span></a></li>
+					<li><a href="#"><span class="fa fa-star"></span></a></li>
+					<li><a href="#"><span class="fa fa-star"></span></a></li>
+					<li><a href="#"></a><span class="fa fa-star-half-o"></span></li>
+				</ul>
+				<p><span class="fa fa-quote-left"></span> <span class="fa fa-quote-right"></span></p>
+			</div>
+		</div>
+	</section>
+	<section class=" py-5 lun">
+		<div class="container pb-lg-3">
+			<h3 class="tittle text-center">最受欢迎的产品</h3>
+			<div class="row">
+				<div class="container-fluid ">
+					<div class="">
+						<div id="carousel" class=" carousel slide  " data-ride="carousel">
+							<ol class="carousel-indicators">
+								<li data-target="#carousel" data-slide-to="0" class="active"></li>
+								<li data-target="#carousel" data-slide-to="1"></li>
+								<li data-target="#carousel" data-slide-to="2"></li>
+								<li data-target="#carousel" data-slide-to="3"></li>
+								<li data-target="#carousel" data-slide-to="4"></li>
+								<li data-target="#carousel" data-slide-to="5"></li>
+							</ol>
+							<div class="carousel-inner">
+								<div class="item active"><img src="images/img7.jpg" alt=""></div>
+								<div class="item"><img src="images/img6.jpg" alt=""></div>
+								<div class="item"><img src="images/img2.jpg" alt=""></div>
+								<div class="item"><img src="images/img3.jpg" alt=""></div>
+								<div class="item"><img src="images/img4.jpg" alt=""></div>
+								<div class="item"><img src="images/img5.jpg" alt=""></div>
+							</div>
+							<a class="left carousel-control " href="#carousel" role="button" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+								<span class="sr-only">Previous</span>
+							</a>
+							<a class="right carousel-control " href="#carousel" role="button" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+								<span class="sr-only">Next</span>
+							</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</section>
+</div>
+</body>
+<script th:src="@{/js/layer.js}"></script>
+<script th:src="@{/plugins/bootstrap/js/bootstrap.js}"></script>
+<script th:src="@{/js/vue.js}"></script>
+<script th:src="@{/js/axios.js}"></script>
+<script>
+    $(document).ready(function () {
+        $("#carousel-gen").carousel({
+            interval: 2000,
+            wrap: true
+        });
+        new Vue({
+            el: "#app",
+            data: {
+                shoe: {
+                    id: "",
+                    name: "",
+                    price: "",
+                    picture: "",
+                }
+
+            },
+            dataList: [],
+
+        });
+
+    })
+
+
+</script>
+</html>
