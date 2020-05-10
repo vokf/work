@@ -13,7 +13,7 @@
 		  rel="stylesheet">
 
 	<!-- title of site -->
-	<title>Sign up</title>
+	<title>注册</title>
 
 	<!-- For favicon png -->
 	<link rel="shortcut icon" type="image/icon" href="logo/favicon.png"/>
@@ -209,7 +209,7 @@
                 if (data.code === 1) {
                     alert("注册成功")
                     var user = data.data
-                    $(location).attr('href', "/work/index.do");
+                    $(location).attr('href', "localhost:8080/work/index.do");
                 }
                 if (data.code === 0) {
                     alert("注册失败")
