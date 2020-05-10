@@ -19,6 +19,7 @@
 	<!--	responsive.css   -->
 	<link rel="stylesheet" href="css/responsive.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="default/layer.css">
 
 </head>
 <body>
@@ -42,9 +43,12 @@
 								<!--/.form-group -->
 								<div class="form-group">
 									<label for="signin_form">password</label>
-									<input type="password" name="password" class="form-control" id="signin_form"
+									<input type="password" name="password" class="form-control" id="password"
 										   placeholder="Password">
+
 								</div>
+								<div class="form-group">
+									<input type="hidden" name="token" value=""></div>
 								<!--/.form-group -->
 							</form>
 							<!--/form -->
@@ -112,13 +116,14 @@
 <!--footer copyright start -->
 <footer class="footer-copyright">
 	<div id="scroll-Top">
-		<i class="fa fa-angle-double-up return-to-top" id="scroll-top" data-toggle="tooltip" data-placement="top"
+		<i class="fa fa-angle-double-up return-to-top" id="scroll" data-toggle="tooltip" data-placement="top"
 		   title="" data-original-title="Back to Top" aria-hidden="true"></i>
 	</div>
 	<!--/.scroll-Top-->
 
 </footer>
 <script src="plugins/jQuery/jquery-3.4.1.js"></script>
+<script src="js/layer.js"></script>
 <!--modernizr.min.js-->
 <script src="js/modernizr.min.js"></script>
 
@@ -128,17 +133,22 @@
 <script src="js/jquery.sticky.js"></script>
 <script src="js/jquery.easing.min.js"></script>
 <script src="js/custom.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 </body>
 
 <script>
+
+
     function loginUser() {
         var userName = $("input[name = 'username']")[0].value;
         var passWord = $("input[name='password']")[0].value;
+
         var user = {};
         user['userName'] = userName;
         user['passWord'] = passWord;
+
         var loginData = JSON.stringify(user);
-		console.log(loginData);
+        console.log(loginData);
 
         $.ajax({
             type: 'post',
@@ -147,15 +157,14 @@
             data: loginData,
             contentType: 'application/json;charset=UTF-8',
             dataType: "json",
+
             success: function (data) {
                 if (data.code === 1) {
                     var user = data.data;
-                    alert("登录成功")
-                 //   $(location).attr('href', "/index?username='" + user.username);
+
+                    alert("登录成功");
 
                 }
-
-
                 if (data.code === 0) {
                     alert("用户名或密码错误")
                 }
@@ -165,6 +174,17 @@
             }
         })
     }
+
+    $(document).ready(function () {
+        $("#signin_form").click(function () {
+            layer.tips("请输入用户名", "#signin_form", {tips: [4, '#6d96f2']});
+        });
+        $("#password").click(function () {
+            layer.tips("请输入您的密码", "#password", {tips: [4, '#6d96f2']});
+        });
+
+
+    })
 
 </script>
 </html>
