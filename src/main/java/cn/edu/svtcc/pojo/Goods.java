@@ -18,7 +18,7 @@ import java.io.Serializable;
 @ToString
 @NoArgsConstructor
 public class Goods implements Serializable {
-
+  private static final long serialVersionUID = 1L;
   private Integer id;
   private String goodName;
   private Integer goodPrice;
