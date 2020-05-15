@@ -32,4 +32,20 @@ public interface GoodsDao {
   })
   List<Goods> selectAllGoods();
 
+
+  /**
+   * 查询热销产品
+   * @return goods
+   */
+  @Select("select * from hot_goods")
+  @Results({
+      @Result(column = "good_name", property = "goodName"),
+      @Result(column = "good_price", property = "goodPrice"),
+      @Result(column = "good_image", property = "goodImage"),
+      @Result(column = "hot", property = "hotGood")
+  })
+  List<Goods> selectGoods();
+
+
+
 }
