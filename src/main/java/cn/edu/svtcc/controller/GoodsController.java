@@ -53,4 +53,6 @@ public class GoodsController {
 
     return "index";
   }
+
+  //
 }
