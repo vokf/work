@@ -18,6 +18,8 @@ import java.util.List;
 @Mapper
 public interface GoodsDao {
 
+
+
   /**
    * 查询所有商品
    *
